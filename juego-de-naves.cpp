@@ -372,7 +372,7 @@ int main()
         cout << "   /   \\  " << endl;
         cout << "  /     \\ " << endl;
         cout << " /       \\" << endl;
-        cout << "/   HAZ   \\" << endl;
+        cout << "/   HAS   \\" << endl;
         cout << "\\PERDIDO  /" << endl;
         cout << " \\       / " << endl;
         cout << "  \\     /  " << endl;
