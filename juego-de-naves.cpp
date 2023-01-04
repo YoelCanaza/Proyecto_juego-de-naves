@@ -1,20 +1,17 @@
 #include <iostream>
-#include <stdio.h>
-// se usa la librerÌa stdio.h de c nos pide el formato de las variables que queremos imprimir
-//eso nos permitir· usar m·s caracteres para imprimir nuestra nave en pantalla
 #include <windows.h>
-/* La biblioteca windows.h incluye la funciÛn SetConsoleCursorPosition(), que nos permite darle una posiciÛn al cursor,
-    ya teniendo esa posiciÛn podremos mandar a imprimir lo que queramos en dichas coordenadas
+/* La biblioteca windows.h incluye la funci√≥n SetConsoleCursorPosition(), que nos permite darle una posici√≥n al cursor,
+    ya teniendo esa posici√≥n podremos mandar a imprimir lo que queramos en dichas coordenadas
 */
 #include <conio.h>
-/*La biblioteca conio.h nos facilitar· detectar si se van presionando las teclas*/
-#include <stdlib.h> // para poder usar la funciÛn rand()
+/*La biblioteca conio.h nos facilitar√° detectar si se van presionando las teclas*/
+#include <stdlib.h> // para poder usar la funci√≥n rand()
 #include<list>
 #include <cstdlib> // necesitamos la cabecera cstdlib para usar system
 
 using namespace std;
 
-/*La siguiente funciÛn nos permitir· darle nuevas coordenadas al cursor poniendo las coordenadas como par·metros, para
+/*La siguiente funci√≥n nos permitir√° darle nuevas coordenadas al cursor poniendo las coordenadas como par√°metros, para
 luego imprimir en esas coordenadas*/
 void gotoxy(int cordx, int cordy) {
     HANDLE consola = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -23,7 +20,7 @@ void gotoxy(int cordx, int cordy) {
     posicion.X = cordx;
     posicion.Y = cordy;
 
-    // la siguiente funciÛn nos permite asignarle una nueva posiciÛn al cursor
+    // la siguiente funci√≥n nos permite asignarle una nueva posici√≥n al cursor
     SetConsoleCursorPosition(consola, posicion);
 }
 
@@ -33,7 +30,7 @@ void ocultarCursor(){
     aparienciaCursor.dwSize = 50;
     aparienciaCursor.bVisible = FALSE;
 
-    // La siguiente funciÛn nos permite cambiar las caracterÌsticas del cursor que se muestra en pantalla
+    // La siguiente funci√≥n nos permite cambiar las caracter√≠sticas del cursor que se muestra en pantalla
     SetConsoleCursorInfo(consola, &aparienciaCursor);
 }
 
@@ -78,7 +75,7 @@ public:
     void explotar();
 };
 
-void NAVE::pintar() { // el operador :: nos permite acceder a los mÈtodos(funciones) de la clase
+void NAVE::pintar() { // el operador :: nos permite acceder a los m√©todos(funciones) de la clase
     gotoxy(cordx, cordy);
     cout << " /A\\ ";
     gotoxy(cordx, cordy + 1);
@@ -98,17 +95,17 @@ void NAVE::borrar() {
 
 void NAVE::mover() {
         if ( kbhit() ) {
-        // la funciÛn kbhit() detecta si se ha presionado una tecla
+        // la funci√≥n kbhit() detecta si se ha presionado una tecla
             char tecla = getch();
-            /* la funciÛn getch() guarda la letra que se presionÛ, entonces le estamos pasando el valor de
-             la tecla que se presionÛ a la variable de nombre tecla */
+            /* la funci√≥n getch() guarda la letra que se presion√≥, entonces le estamos pasando el valor de
+             la tecla que se presion√≥ a la variable de nombre tecla */
 
             borrar();
 
-            /* Cada una de las teclas est·n asociadas con un n˙mero que podemos usar para referirnos a ellas,
-            y cuando el compilardor se ve en la situaciÛn de comparar algo que deberÌa ser un caracter con un n˙mero entero
-            toma el n˙mero como un cÛdigo que hace referencia a un caracter
-            en el caso de las flechas arriba, abajo, izquierda y derecha, los n˙meros son: 72, 80, 75 y 77 respectivamente */
+            /* Cada una de las teclas est√°n asociadas con un n√∫mero que podemos usar para referirnos a ellas,
+            y cuando el compilardor se ve en la situaci√≥n de comparar algo que deber√≠a ser un caracter con un n√∫mero entero
+            toma el n√∫mero como un c√≥digo que hace referencia a un caracter
+            en el caso de las flechas arriba, abajo, izquierda y derecha, los n√∫meros son: 72, 80, 75 y 77 respectivamente */
             if (tecla == 75) {
                 cordx -= 1;
                 if (cordx < 3) {
@@ -343,12 +340,12 @@ int main()
         voyager.explotar();
         voyager.mover();
         Sleep(40);
-        // la funciÛn sleep(30) detiene la ejecuciÛn del programa por 30 milisegudnos cuando se llega a esta sentencia
+        // la funci√≥n sleep(30) detiene la ejecuci√≥n del programa por 30 milisegudnos cuando se llega a esta sentencia
         //Eso lo hacemos con el fin de no saturar el procesador
     }
     if(win) {
-        system("cls");// limpia la pantalla en Windows. Llamar a la funciÛn system es
-        //una mala pr·ctica ya que puede ser inseguro en algunos casos
+        system("cls");// limpia la pantalla en Windows. Llamar a la funci√≥n system es
+        //una mala pr√°ctica ya que puede ser inseguro en algunos casos
         cout << "                           *     .--." << endl;
         cout << "                                / /  `" << endl;
         cout << "               +               | |" << endl;
